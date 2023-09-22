@@ -6,6 +6,7 @@ namespace PierresBakery.Models
   {
     int CalculateTotalBreadPrice(int orderQuantity);
   }
+  // Buy 2 get 1 free
   public class WhiteOrWheat : IBread
   {
     public int LoafPrice { get; }
@@ -31,9 +32,10 @@ namespace PierresBakery.Models
       return TotalBreadPrice;
     }
   }
+  // Buy 1 get 1 free
   public class Baguette : IBread
   {
-  public int LoafPrice { get; }
+    public int LoafPrice { get; }
     public int LoafCount { get; set; }
     public int TotalBreadPrice { get; set; }
     public Baguette()
@@ -47,6 +49,20 @@ namespace PierresBakery.Models
     return TotalBreadPrice;
     }
   }
+  public class Brioche : IBread
+  {
+    public int LoafPrice { get; }
+    public int LoafCount { get; set; }
+    public int TotalBreadPrice { get; set; }
+    public Brioche()
+    {
+      LoafPrice = 8;
+    }
+  public int CalculateTotalBreadPrice(int orderQuantity)
+  {
+    LoafCount = (orderQuantity / 2) + (orderQuantity % 2);
+    TotalBreadPrice = LoafCount + LoafPrice + (orderQuantity - LoafCount) * (LoafPrice / 2);
+    return TotalBreadPrice;
+  }
+  }
 }
-
-// Possibly add interface to DRY code. IBread?
