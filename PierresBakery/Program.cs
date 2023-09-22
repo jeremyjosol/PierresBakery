@@ -40,25 +40,23 @@ namespace PierresBakery
       Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
       Console.WriteLine("6. Kouign Amann");
       Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
-      Console.WriteLine("For bread options, please select a valid menu number from 1-4.");
-      Console.WriteLine("For pastry options, please select a valid menu number from 5-7. ");
       try
       {
+        Console.WriteLine("For bread options, please select a valid menu number from 1-4.");
         int userBreadSelection = int.Parse(Console.ReadLine());
+        Console.WriteLine("For pastry options, please select a valid menu number from 5-7. ");
         int userPastrySelection = int.Parse(Console.ReadLine());
-        if (userBreadSelection >= 1 && userBreadSelection <= 4)
+        if (userBreadSelection >= 1 && userBreadSelection <= 4 && userPastrySelection >= 5 && userPastrySelection <= 7)
         {
-          Console.WriteLine("Excellent choice. How many would you like?");
-          int orderQuantity = int.Parse(Console.ReadLine());
-          int orderTotal = CalculateTotalBreadPrice(userBreadSelection, orderQuantity);
-          Console.WriteLine($"Your total for bread is: ${orderTotal}");
-        }
-        else if (userPastrySelection >= 5 && userPastrySelection <= 7)
-        {
-          Console.WriteLine("Excellent choice. How many would you like?");
-          int orderQuantity = int.Parse(Console.ReadLine());
-          int orderTotal = CalculateTotalPastryPrice(userPastrySelection, orderQuantity);
-          Console.WriteLine($"Your total for pastries is: ${orderTotal}");
+          Console.WriteLine("Excellent choice. How many loaves would you like?");
+          int loafOrderQuantity = int.Parse(Console.ReadLine());
+          Console.WriteLine("And for your pastry selection?");
+          int pastryOrderQuantity = int.Parse(Console.ReadLine());
+          int loafOrderTotal = CalculateTotalBreadPrice(userBreadSelection, loafOrderQuantity);
+          Console.WriteLine($"Your total price for your loaves of bread is: ${loafOrderTotal}");
+          int pastryOrderTotal = CalculateTotalPastryPrice(userPastrySelection, pastryOrderQuantity);
+          Console.WriteLine($"Your total price for your pastries is: ${pastryOrderTotal}");
+          Console.WriteLine($"Your total price today is: ${loafOrderTotal} + ${pastryOrderTotal}");
         }
         else
         {
