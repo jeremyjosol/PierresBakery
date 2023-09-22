@@ -15,5 +15,13 @@ namespace PierresBakery.Tests
       Pastry.CalculateTotalPastryPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, Pastry.TotalPastryPrice);
     }
+    [TestMethod]
+    public void CalculateTotalPastryPrice_WillUpdateTotalPastryPriceDiscount_Int()
+    {
+      int orderQuantity = 8;
+      int expectedPrice = 12;
+      Pastry.CalculateTotalPastryPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, Pastry.TotalPastryPrice);
+    }
   }
 }
