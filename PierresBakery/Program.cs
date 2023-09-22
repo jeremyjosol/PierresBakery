@@ -40,17 +40,25 @@ namespace PierresBakery
       Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
       Console.WriteLine("6. Kouign Amann");
       Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
-      Console.WriteLine("Please select a valid menu item number from 1 to 7.");
+      Console.WriteLine("For bread options, please select a valid menu number from 1-4.");
+      Console.WriteLine("For pastry options, please select a valid menu number from 5-7. ");
       try
       {
-        int userSelection = int.Parse(Console.ReadLine());
-        if (userSelection >= 1 && userSelection <= 7)
+        int userBreadSelection = int.Parse(Console.ReadLine());
+        int userPastrySelection = int.Parse(Console.ReadLine());
+        if (userBreadSelection >= 1 && userBreadSelection <= 4)
         {
           Console.WriteLine("Excellent choice. How many would you like?");
           int orderQuantity = int.Parse(Console.ReadLine());
-          int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
-          Console.WriteLine($"Your total is: ${orderTotal}");
-          Console.WriteLine("Thank you for your order!");
+          int orderTotal = CalculateTotalBreadPrice(userBreadSelection, orderQuantity);
+          Console.WriteLine($"Your total for bread is: ${orderTotal}");
+        }
+        else if (userPastrySelection >= 5 && userPastrySelection <= 7)
+        {
+          Console.WriteLine("Excellent choice. How many would you like?");
+          int orderQuantity = int.Parse(Console.ReadLine());
+          int orderTotal = CalculateTotalPastryPrice(userPastrySelection, orderQuantity);
+          Console.WriteLine($"Your total for pastries is: ${orderTotal}");
         }
         else
         {
@@ -62,7 +70,7 @@ namespace PierresBakery
         CatchError();
       }
     }
-    static int CalculateTotalPrice(int userSelection, int orderQuantity)
+    static int CalculateTotalBreadPrice(int userSelection, int orderQuantity)
     {
       switch (userSelection)
       {
@@ -74,6 +82,14 @@ namespace PierresBakery
         return CalculateBreadTotal(new Baguette(), orderQuantity);
         case 4:
         return CalculateBreadTotal(new Brioche(), orderQuantity);
+        default: 
+        return 0;
+        }
+    }
+    static int CalculateTotalPastryPrice(int userSelection, int orderQuantity)
+    {
+      switch (userSelection)
+      {
         case 5:
         return CalculatePastryTotal(new Croissant(), orderQuantity);
         case 6: 
@@ -82,7 +98,7 @@ namespace PierresBakery
         return CalculatePastryTotal(new PainAuChocolat(), orderQuantity);
         default: 
         return 0;
-        }
+      }
     }
     static void HandleUserInputError()
     {
