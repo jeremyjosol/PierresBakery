@@ -1,5 +1,9 @@
 namespace PierresBakery.Models
 {
+    public interface IPastry
+    {
+      int CalculateTotalPastryPrice(int orderQuantity);
+    }
     public class Pastry
   {
     static public int PastryPrice { get; }
