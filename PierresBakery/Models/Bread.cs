@@ -2,17 +2,21 @@ using System;
 
 namespace PierresBakery.Models
 {
-  public class Bread
+  public interface IBread
+  {
+    int CalculateTotalBreadPrice(int orderQuantity);
+  }
+  public class WhiteOrWheat : IBread
   {
     static public int LoafPrice { get; }
     static public int LoafCount { get; set; }
     static public int TotalBreadPrice { get; set; }
 
-    static Bread()
+    static WhiteOrWheat()
     {
       LoafPrice = 5;
     }
-    static public void CalculateTotalBreadPrice(int orderQuantity)
+    public int CalculateTotalBreadPrice(int orderQuantity)
     {
 
       LoafCount = orderQuantity;
@@ -26,6 +30,7 @@ namespace PierresBakery.Models
           TotalBreadPrice -= LoafPrice;
         }
       }
+      return TotalBreadPrice;
     }
   }
 }

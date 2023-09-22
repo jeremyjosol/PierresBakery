@@ -10,18 +10,20 @@ namespace PierresBakery.Tests
     [TestMethod]
     public void CalculateTotalBreadPrice_WillUpdateTotalBreadPrice_Int()
     {
+      WhiteOrWheat loafOfWhiteOrWheat = new WhiteOrWheat();
       int orderQuantity = 1;
       int expectedPrice = 5;
-      Bread.CalculateTotalBreadPrice(orderQuantity);
-      Assert.AreEqual(expectedPrice, Bread.TotalBreadPrice);
+      loafOfWhiteOrWheat.CalculateTotalBreadPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, WhiteOrWheat.TotalBreadPrice);
     }
      [TestMethod]
       public void CalculateTotalBreadPrice_WillUpdateTotalBreadPriceDiscount_Int()
       {
+      WhiteOrWheat loafOfWhiteOrWheat = new WhiteOrWheat();
       int orderQuantity = 6;
       int expectedPrice = 20;
-      Bread.CalculateTotalBreadPrice(orderQuantity);
-      Assert.AreEqual(expectedPrice, Bread.TotalBreadPrice);
+      loafOfWhiteOrWheat.CalculateTotalBreadPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, WhiteOrWheat.TotalBreadPrice);
     }
   }
 }
