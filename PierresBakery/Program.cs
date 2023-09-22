@@ -44,12 +44,11 @@ namespace PierresBakery
       try
       {
         int userSelection = int.Parse(Console.ReadLine());
-        Console.WriteLine("Excellent choice. How many would you like?");
-        int orderQuantity = int.Parse(Console.ReadLine());
-        int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
-    
         if (userSelection >= 1 && userSelection <= 7)
         {
+          Console.WriteLine("Excellent choice. How many would you like?");
+          int orderQuantity = int.Parse(Console.ReadLine());
+          int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
           Console.WriteLine($"Your total is: ${orderTotal}");
           Console.WriteLine("Thank you for your order!");
         }
