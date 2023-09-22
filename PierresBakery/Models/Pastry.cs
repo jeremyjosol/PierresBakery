@@ -1,14 +1,14 @@
 namespace PierresBakery.Models
 {
-    public interface IPastry
-    {
-      int CalculateTotalPastryPrice(int orderQuantity);
-    }
-    public class Croissant : IPastry
+  public interface IPastry
   {
-    int PastryPrice { get; }
-    int PastryCount { get; set; }
-    int TotalPastryPrice { get; set; }
+    int CalculateTotalPastryPrice(int orderQuantity);
+  }
+  public class Croissant : IPastry
+  {
+    public int PastryPrice { get; }
+    public int PastryCount { get; set; }
+    public int TotalPastryPrice { get; set; }
 
     public Croissant()
     {
@@ -16,7 +16,6 @@ namespace PierresBakery.Models
     }
     public int CalculateTotalPastryPrice(int orderQuantity)
     {
-
       PastryCount = orderQuantity;
       TotalPastryPrice = 0;
       
@@ -28,7 +27,21 @@ namespace PierresBakery.Models
           TotalPastryPrice -= PastryPrice;
         }
       }
-      return TotalPastryPrice;
+        return TotalPastryPrice;
+      }
+    }
+  public class KouignAmann : IPastry
+  {
+    public int PastryPrice { get; }
+    public int PastryCount { get; set; }
+    public int TotalPastryPrice { get; set; }
+    public KouignAmann()
+    {
+      PastryPrice = 5;
+    }
+    public int CalculateTotalPastryPrice(int orderQuantity)
+    {
+      return orderQuantity * PastryPrice;
     }
   }
 }
