@@ -61,7 +61,7 @@ namespace PierresBakery.Models
   public int CalculateTotalBreadPrice(int orderQuantity)
   {
     LoafCount = (orderQuantity / 2) + (orderQuantity % 2);
-    TotalBreadPrice = LoafCount + LoafPrice + (orderQuantity - LoafCount) * (LoafPrice / 2);
+    TotalBreadPrice = LoafCount * LoafPrice + (orderQuantity - LoafCount) * (LoafPrice / 2);
     return TotalBreadPrice;
   }
   }

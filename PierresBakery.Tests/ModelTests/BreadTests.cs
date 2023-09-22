@@ -29,8 +29,8 @@ namespace PierresBakery.Tests
     public void CalculateTotalBreadPrice_WillUpdateTotalBaguettePrice_Int()
     {
       Baguette loafOfBaguette = new Baguette();
-      int orderQuantity = 2;
-      int expectedPrice = 6;
+      int orderQuantity = 4;
+      int expectedPrice = 12;
       loafOfBaguette.CalculateTotalBreadPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, loafOfBaguette.TotalBreadPrice);
     }
@@ -38,8 +38,8 @@ namespace PierresBakery.Tests
     public void CalculateTotalBreadPriceWillUpdateTotalBriochePrice_Int()
     {
       Brioche loafOfBrioche = new Brioche();
-      int orderQuantity = 2;
-      int expectedPrice = 12;
+      int orderQuantity = 3;
+      int expectedPrice = 20;
       loafOfBrioche.CalculateTotalBreadPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, loafOfBrioche.TotalBreadPrice);
     }
