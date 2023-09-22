@@ -14,7 +14,10 @@ namespace PierresBakery.Models
     }
     static public void CalculateTotalBreadPrice(int orderQuantity)
     {
+
       LoafCount = orderQuantity;
+      TotalBreadPrice = 0;
+      
       for (int i = 1; i <= orderQuantity; i++)
       {
         TotalBreadPrice += LoafPrice;
