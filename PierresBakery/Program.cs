@@ -62,8 +62,6 @@ namespace PierresBakery
         CatchError();
       }
     }
-
-
     static int CalculateTotalPrice(int userSelection, int orderQuantity)
     {
       switch (userSelection)
@@ -86,18 +84,15 @@ namespace PierresBakery
         return 0;
         }
     }
-
     static void HandleUserInputError()
     {
       Console.WriteLine("Your order could not be processed.");
       Console.WriteLine("Please enter a valid entry.");
     }
-
     static void CatchError()
     {
       Console.WriteLine("Please try again.");
     }
-
     static int CalculateBreadTotal(IBread bread, int orderQuantity)
     {
       return bread.CalculateTotalBreadPrice(orderQuantity);
