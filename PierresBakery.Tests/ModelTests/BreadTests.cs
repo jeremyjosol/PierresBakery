@@ -18,8 +18,8 @@ namespace PierresBakery.Tests
      [TestMethod]
       public void CalculateTotalBreadPrice_WillUpdateTotalBreadPriceDiscount_Int()
       {
-      int orderQuantity = 3;
-      int expectedPrice = 10;
+      int orderQuantity = 6;
+      int expectedPrice = 20;
       Bread.CalculateTotalBreadPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, Bread.TotalBreadPrice);
     }
