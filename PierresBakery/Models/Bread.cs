@@ -1,5 +1,3 @@
-using System;
-
 namespace PierresBakery.Models
 {
   public interface IBread
