@@ -47,8 +47,8 @@ namespace PierresBakery.Tests
     public void CalculateTotalPastryPrice_WillUpdateTotalPainAuChocolatPrice_Int()
     {
       PainAuChocolat painAuChocolat = new PainAuChocolat();
-      int orderQuantity = 5;
-      int expectedPrice = 18;
+      int orderQuantity = 8;
+      int expectedPrice = 28;
       painAuChocolat.CalculateTotalPastryPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, painAuChocolat.TotalPastryPrice);
     }
