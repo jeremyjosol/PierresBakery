@@ -32,35 +32,50 @@ namespace PierresBakery
       Console.WriteLine("");
       Console.WriteLine("");
       Console.WriteLine("What would you like to order today?");
-      Console.WriteLine("1. WHITE OR WHEAT BREAD | BUY 2 GET 1 FREE SPECIAL");
-      Console.WriteLine("2. BAGUETTE | BUY 1 GET 1 FREE SPECIAL");
-      Console.WriteLine("3. BRIOCHE | BUY 1 GET 1 50% OFF SPECIAL");
-      Console.WriteLine("Please select an option from 1-3.");
+      Console.WriteLine("1. White or Wheat | Buy 2 get 1 free *SPECIAL*");
+      Console.WriteLine("2. Baguette | Buy 1 get 1 free *SPECIAL*");
+      Console.WriteLine("3. Brioche | Buy 1 get 1 50% off *SPECIAL*");
+      Console.WriteLine("4. Croissant | Buy 3 get 1 free *SPECIAL*");
+      Console.WriteLine("5. Kouign Amann");
+      Console.WriteLine("6. Pain Au Chocolat | Buy 3 get 1 half off");
+      Console.WriteLine("Please select a number from 1-6.");
       int userSelection = int.Parse(Console.ReadLine());
+      Console.WriteLine("Excellent choice. How many would you like?");
       int orderQuantity = int.Parse(Console.ReadLine());
+      int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
+
+      if (orderTotal >= 1)
+      {
+        Console.WriteLine($"Your total is: ${orderTotal}");
+        Console.WriteLine("Thank you for your order!");
+      }
+      else
+      {
+        Console.WriteLine("Please select a valid option.");
+      }
+    }
+      static int CalculateTotalPrice(int userSelection, int orderQuantity)
+      {
+        switch (userSelection)
+        {
+          case 1:
+          return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
+          case 2:
+          return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
+          case 3:
+          return CalculateBreadTotal(new Baguette(), orderQuantity);
+          default: 
+          return 0;
         }
       }
+      static int CalculateBreadTotal(IBread bread, int orderQuantity)
+      {
+        return bread.CalculateTotalBreadPrice(orderQuantity);
+      }
 
-  
-
-    
-
-  
-
-  
-
-
-
-  
- 
- 
- 
- 
-
- 
- 
- 
-
+      static int CalculatePastryTotal(IPastry pastry, int orderQuantity)
+      {
+        return pastry.CalculateTotalPastryPrice(orderQuantity);
+      }
     }
-  }
 }
