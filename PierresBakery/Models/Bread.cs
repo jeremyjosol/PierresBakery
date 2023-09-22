@@ -42,11 +42,13 @@ namespace PierresBakery.Models
     }
     public int CalculateTotalBreadPrice(int orderQuantity)
     {
+      TotalBreadPrice = 0;
       LoafCount = (orderQuantity / 2) + (orderQuantity % 2);
       TotalBreadPrice = LoafCount * LoafPrice;
       return TotalBreadPrice;
     }
   }
+  // Buy 1 get 1 50% off
   public class Brioche : IBread
   {
     public int LoafPrice { get; }
@@ -58,9 +60,9 @@ namespace PierresBakery.Models
     }
     public int CalculateTotalBreadPrice(int orderQuantity)
     {
-      LoafCount = (orderQuantity / 2) + (orderQuantity % 2);
-      TotalBreadPrice = LoafCount * LoafPrice + (orderQuantity - LoafCount) * (LoafPrice / 2);
+      TotalBreadPrice = 0;
       return TotalBreadPrice;
+      
     }
   }
 }
