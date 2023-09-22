@@ -27,8 +27,9 @@ namespace PierresBakery
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~KOUIGN AMANN*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");  
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*$5~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~PAIN AU CHOCOLAT*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");  
-      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*$4~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");  
+      Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");   
       Console.WriteLine("");
       Console.WriteLine("");
       Console.WriteLine("What would you like to order today?");
@@ -39,44 +40,52 @@ namespace PierresBakery
       Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
       Console.WriteLine("6. Kouign Amann");
       Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
-      Console.WriteLine("Please select a number from 1-7.");
+      Console.WriteLine("Please select a valid menu item number from 1 to 7.");
       int userSelection = int.Parse(Console.ReadLine());
       Console.WriteLine("Excellent choice. How many would you like?");
       int orderQuantity = int.Parse(Console.ReadLine());
       int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
-
-      if (orderTotal >= 1)
+    
+      if (userSelection < 1 && userSelection < 8)
+      {
+        Console.WriteLine("Please select a valid option.");
+      }
+      else
       {
         Console.WriteLine($"Your total is: ${orderTotal}");
         Console.WriteLine("Thank you for your order!");
       }
-      else
-      {
-        Console.WriteLine("Please select a valid option.");
-      }
     }
-      static int CalculateTotalPrice(int userSelection, int orderQuantity)
+    static int CalculateTotalPrice(int userSelection, int orderQuantity)
+    {
+      switch (userSelection)
       {
-        switch (userSelection)
-        {
-          case 1:
-          return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
-          case 2:
-          return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
-          case 3:
-          return CalculateBreadTotal(new Baguette(), orderQuantity);
-          default: 
-          return 0;
+        case 1:
+        return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
+        case 2:
+        return CalculateBreadTotal(new WhiteOrWheat(), orderQuantity);
+        case 3:
+        return CalculateBreadTotal(new Baguette(), orderQuantity);
+        case 4:
+        return CalculateBreadTotal(new Brioche(), orderQuantity);
+        case 5:
+        return CalculatePastryTotal(new Croissant(), orderQuantity);
+        case 6: 
+        return CalculatePastryTotal(new KouignAmann(), orderQuantity);
+        case 7:
+        return CalculatePastryTotal(new PainAuChocolat(), orderQuantity);
+        default: 
+        return 0;
         }
-      }
-      static int CalculateBreadTotal(IBread bread, int orderQuantity)
-      {
-        return bread.CalculateTotalBreadPrice(orderQuantity);
-      }
-
-      static int CalculatePastryTotal(IPastry pastry, int orderQuantity)
-      {
-        return pastry.CalculateTotalPastryPrice(orderQuantity);
-      }
     }
+    static int CalculateBreadTotal(IBread bread, int orderQuantity)
+    {
+      return bread.CalculateTotalBreadPrice(orderQuantity);
+    }
+
+    static int CalculatePastryTotal(IPastry pastry, int orderQuantity)
+    {
+      return pastry.CalculateTotalPastryPrice(orderQuantity);
+    }
+  }
 }
