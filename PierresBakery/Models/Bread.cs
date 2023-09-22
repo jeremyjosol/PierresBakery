@@ -61,6 +61,9 @@ namespace PierresBakery.Models
     public int CalculateTotalBreadPrice(int orderQuantity)
     {
       TotalBreadPrice = 0;
+      int halfOff = orderQuantity / 2;
+
+
       return TotalBreadPrice;
       
     }
