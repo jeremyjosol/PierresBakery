@@ -8,20 +8,18 @@ namespace PierresBakery.Models
   }
   public class WhiteOrWheat : IBread
   {
-    static public int LoafPrice { get; }
-    static public int LoafCount { get; set; }
-    static public int TotalBreadPrice { get; set; }
+    public int LoafPrice { get; }
+    public int LoafCount { get; set; }
+    public int TotalBreadPrice { get; set; }
 
-    static WhiteOrWheat()
+    public WhiteOrWheat()
     {
       LoafPrice = 5;
     }
     public int CalculateTotalBreadPrice(int orderQuantity)
     {
-
       LoafCount = orderQuantity;
       TotalBreadPrice = 0;
-
       for (int i = 1; i <= orderQuantity; i++)
       {
         TotalBreadPrice += LoafPrice;
@@ -31,6 +29,22 @@ namespace PierresBakery.Models
         }
       }
       return TotalBreadPrice;
+    }
+  }
+  public class Baguette : IBread
+  {
+  public int LoafPrice { get; }
+    public int LoafCount { get; set; }
+    public int TotalBreadPrice { get; set; }
+    public Baguette()
+    {
+      LoafPrice = 6;
+    }
+  public int CalculateTotalBreadPrice(int orderQuantity)
+  {
+    int LoafCount = (orderQuantity / 2) + (orderQuantity % 2);
+    int TotalBreadPrice = LoafCount * LoafPrice;
+    return TotalBreadPrice;
     }
   }
 }

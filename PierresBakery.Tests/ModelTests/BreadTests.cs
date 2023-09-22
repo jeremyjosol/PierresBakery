@@ -14,7 +14,7 @@ namespace PierresBakery.Tests
       int orderQuantity = 1;
       int expectedPrice = 5;
       loafOfWhiteOrWheat.CalculateTotalBreadPrice(orderQuantity);
-      Assert.AreEqual(expectedPrice, WhiteOrWheat.TotalBreadPrice);
+      Assert.AreEqual(expectedPrice, loafOfWhiteOrWheat.TotalBreadPrice);
     }
      [TestMethod]
       public void CalculateTotalBreadPrice_WillUpdateTotalBreadPriceDiscount_Int()
@@ -23,7 +23,16 @@ namespace PierresBakery.Tests
       int orderQuantity = 6;
       int expectedPrice = 20;
       loafOfWhiteOrWheat.CalculateTotalBreadPrice(orderQuantity);
-      Assert.AreEqual(expectedPrice, WhiteOrWheat.TotalBreadPrice);
+      Assert.AreEqual(expectedPrice, loafOfWhiteOrWheat.TotalBreadPrice);
+    }
+    [TestMethod]
+    public void CalculateTotalBreadPrice_WillUpdateTotalBaguettePrice_Int()
+    {
+      Baguette loafOfBaguette = new Baguette();
+      int orderQuantity = 2;
+      int expectedPrice = 6;
+      loafOfBaguette.CalculateTotalBreadPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, loafOfBaguette.TotalBreadPrice);
     }
   }
 }
