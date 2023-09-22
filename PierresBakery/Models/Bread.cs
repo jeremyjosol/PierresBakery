@@ -29,3 +29,5 @@ namespace PierresBakery.Models
     }
   }
 }
+
+// Possibly add interface to DRY code. IBread?
