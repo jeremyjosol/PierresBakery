@@ -1,8 +1,29 @@
-using System;
-
 namespace PierresBakery.Models
 {
-  public class Pastry
+    public class Pastry
   {
+    static public int PastryPrice { get; }
+    static public int PastryCount { get; set; }
+    static public int TotalPastryPrice { get; set; }
+
+    static Pastry()
+    {
+      PastryPrice = 2;
+    }
+    static public void CalculateTotalPastryPrice(int orderQuantity)
+    {
+
+      PastryCount = orderQuantity;
+      TotalPastryPrice = 0;
+      
+      for (int i = 1; i <= orderQuantity; i++)
+      {
+        TotalPastryPrice += PastryPrice;
+        if (i % 4 == 0)
+        {
+          TotalPastryPrice -= PastryPrice;
+        }
+      }
+    }
   }
 }
