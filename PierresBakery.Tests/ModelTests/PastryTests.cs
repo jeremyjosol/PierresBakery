@@ -28,7 +28,11 @@ namespace PierresBakery.Tests
     [TestMethod]
     public void CalculateTotalPastryPrice_WillUpdateTotalKouignAmannPrice_Int()
     {
-      
+      KouignAmann kouignAmannPastry = new KouignAmann();
+      int orderQuantity = 5;
+      int expectedPrice = 25;
+      kouignAmannPastry.CalculateTotalPastryPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, kouignAmannPastry.TotalPastryPrice);
     }
   }
 }
