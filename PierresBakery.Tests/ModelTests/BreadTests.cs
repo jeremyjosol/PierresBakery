@@ -35,6 +35,15 @@ namespace PierresBakery.Tests
       Assert.AreEqual(expectedPrice, loafOfBaguette.TotalBreadPrice);
     }
     [TestMethod]
+    public void CalculateTotalBreadPrice_WillUpdateTotalBaguetteResetPrice_Int()
+    {
+      Baguette loafOfBaguette = new Baguette();
+      int orderQuantity = 5;
+      int expectedPrice = 18;
+      loafOfBaguette.CalculateTotalBreadPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, loafOfBaguette.TotalBreadPrice);
+    }
+    [TestMethod]
     public void CalculateTotalBreadPriceWillUpdateTotalBriochePrice_Int()
     {
       Brioche loafOfBrioche = new Brioche();
