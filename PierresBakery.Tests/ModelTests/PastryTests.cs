@@ -52,5 +52,14 @@ namespace PierresBakery.Tests
       painAuChocolat.CalculateTotalPastryPrice(orderQuantity);
       Assert.AreEqual(expectedPrice, painAuChocolat.TotalPastryPrice);
     }
+    [TestMethod]
+    public void CalculateTotalPastryPrice_WillUpdateTotalPainAuChocolatResetPrice_Int()
+    {
+      PainAuChocolat painAuChocolat = new PainAuChocolat();
+      int orderQuantity = 1;
+      int expectedPrice = 4;
+      painAuChocolat.CalculateTotalPastryPrice(orderQuantity);
+      Assert.AreEqual(expectedPrice, painAuChocolat.TotalPastryPrice);
+    }
   }
 }
