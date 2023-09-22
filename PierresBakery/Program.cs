@@ -41,21 +41,30 @@ namespace PierresBakery
       Console.WriteLine("6. Kouign Amann");
       Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
       Console.WriteLine("Please select a valid menu item number from 1 to 7.");
-      int userSelection = int.Parse(Console.ReadLine());
-      Console.WriteLine("Excellent choice. How many would you like?");
-      int orderQuantity = int.Parse(Console.ReadLine());
-      int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
+      try
+      {
+        int userSelection = int.Parse(Console.ReadLine());
+        Console.WriteLine("Excellent choice. How many would you like?");
+        int orderQuantity = int.Parse(Console.ReadLine());
+        int orderTotal = CalculateTotalPrice(userSelection, orderQuantity);
     
-      if (userSelection < 1 && userSelection < 8)
-      {
-        Console.WriteLine("Please select a valid option.");
+        if (userSelection >= 1 && userSelection <= 7)
+        {
+          Console.WriteLine($"Your total is: ${orderTotal}");
+          Console.WriteLine("Thank you for your order!");
+        }
+        else
+        {
+          HandleUserInputError();
+        }
       }
-      else
+      catch
       {
-        Console.WriteLine($"Your total is: ${orderTotal}");
-        Console.WriteLine("Thank you for your order!");
+        CatchError();
       }
     }
+
+
     static int CalculateTotalPrice(int userSelection, int orderQuantity)
     {
       switch (userSelection)
@@ -78,6 +87,18 @@ namespace PierresBakery
         return 0;
         }
     }
+
+    static void HandleUserInputError()
+    {
+      Console.WriteLine("Your order could not be processed.");
+      Console.WriteLine("Please enter a valid entry.");
+    }
+
+    static void CatchError()
+    {
+      Console.WriteLine("Please try again.");
+    }
+
     static int CalculateBreadTotal(IBread bread, int orderQuantity)
     {
       return bread.CalculateTotalBreadPrice(orderQuantity);
