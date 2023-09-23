@@ -91,14 +91,16 @@ namespace PierresBakery
     static void ShowMenu()
     {
       Console.WriteLine(" ");
-      Console.WriteLine("What would you like to order today?");
-      Console.WriteLine("1. White | Buy 2 get 1 free *SPECIAL*");
-      Console.WriteLine("2. Wheat | Buy 2 get 1 free *SPECIAL*");
-      Console.WriteLine("3. Baguette | Buy 1 get 1 free *SPECIAL*");
-      Console.WriteLine("4. Brioche | Buy 1 get 1 50% off *SPECIAL*");
-      Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
-      Console.WriteLine("6. Kouign Amann");
-      Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
+      Console.WriteLine("                             What would you like to order today?");
+      Console.WriteLine(" ");
+      Console.WriteLine("                           1. White | Buy 2 get 1 free *SPECIAL*");
+      Console.WriteLine("                           2. Wheat | Buy 2 get 1 free *SPECIAL*");
+      Console.WriteLine("                           3. Baguette | Buy 1 get 1 free *SPECIAL*");
+      Console.WriteLine("                           4. Brioche | Buy 1 get 1 50% off *SPECIAL*");
+      Console.WriteLine("                           5. Croissant | Buy 3 get 1 free *SPECIAL*");
+      Console.WriteLine("                           6. Kouign Amann");
+      Console.WriteLine("                           7. Pain Au Chocolat | Buy 3 get 1 half off");
+      Console.WriteLine(" ");
       Console.WriteLine(" ");
     }
     static int CalculateTotalBreadPrice(int userSelection, int orderQuantity)
