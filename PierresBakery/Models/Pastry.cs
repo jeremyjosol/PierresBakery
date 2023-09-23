@@ -4,7 +4,6 @@ namespace PierresBakery.Models
   {
     int CalculateTotalPastryPrice(int orderQuantity);
   }
-  // Buy 3 get 1 free
   public class Croissant : IPastry
   {
     public int PastryPrice { get; }
@@ -31,7 +30,6 @@ namespace PierresBakery.Models
         return TotalPastryPrice;
       }
   }
-    // Full price
   public class KouignAmann : IPastry
   {
     public int PastryPrice { get; }
@@ -47,7 +45,6 @@ namespace PierresBakery.Models
       return TotalPastryPrice;
     }
   }
-   // Buy 3 get 1 half off
   public class PainAuChocolat : IPastry
   {
     public int PastryPrice { get; }
