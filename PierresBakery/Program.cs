@@ -32,14 +32,7 @@ namespace PierresBakery
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");   
       Console.WriteLine("");
       Console.WriteLine("");
-      Console.WriteLine("What would you like to order today?");
-      Console.WriteLine("1. White | Buy 2 get 1 free *SPECIAL*");
-      Console.WriteLine("2. Wheat | Buy 2 get 1 free *SPECIAL*");
-      Console.WriteLine("3. Baguette | Buy 1 get 1 free *SPECIAL*");
-      Console.WriteLine("4. Brioche | Buy 1 get 1 50% off *SPECIAL*");
-      Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
-      Console.WriteLine("6. Kouign Amann");
-      Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
+      ShowMenu();
       try
       {
         Console.WriteLine("For bread options, please select a valid menu number from 1-4.");
@@ -53,20 +46,51 @@ namespace PierresBakery
           Console.WriteLine("And for your pastry selection?");
           int pastryOrderQuantity = int.Parse(Console.ReadLine());
           int loafOrderTotal = CalculateTotalBreadPrice(userBreadSelection, loafOrderQuantity);
+          Console.WriteLine(" ");
           Console.WriteLine($"Your total price for your loaves of bread is: ${loafOrderTotal}");
           int pastryOrderTotal = CalculateTotalPastryPrice(userPastrySelection, pastryOrderQuantity);
           Console.WriteLine($"Your total price for your pastries is: ${pastryOrderTotal}");
-          Console.WriteLine($"Your total price today is: ${loafOrderTotal} + ${pastryOrderTotal}");
+          Console.WriteLine(" ");
+          int orderTotal = loafOrderTotal + pastryOrderTotal;
+          Console.WriteLine($"Your total price today is: ${orderTotal}");
+          Console.WriteLine("Ready to checkout?");
+          Console.Write("Please enter: yes/no");
+          string userCheckout = Console.ReadLine();          
+          if (userCheckout.ToLower() == "yes")
+          {
+            Console.WriteLine($"Please enter the total amount of ${orderTotal} to confirm your order.");
+            string confirmOrder = Console.ReadLine();
+            if (confirmOrder == orderTotal.ToString())
+            {
+              Console.WriteLine("Payment successful. Thank you for your order!");
+            }
+            else
+            {
+              Console.WriteLine("Payment amount does not match, your order can not be processed.");
+            }
+          }
         }
         else
         {
           HandleUserInputError();
+          ShowMenu();
         }
       }
       catch
       {
         CatchError();
       }
+    }
+    static void ShowMenu()
+    {
+      Console.WriteLine("What would you like to order today?");
+      Console.WriteLine("1. White | Buy 2 get 1 free *SPECIAL*");
+      Console.WriteLine("2. Wheat | Buy 2 get 1 free *SPECIAL*");
+      Console.WriteLine("3. Baguette | Buy 1 get 1 free *SPECIAL*");
+      Console.WriteLine("4. Brioche | Buy 1 get 1 50% off *SPECIAL*");
+      Console.WriteLine("5. Croissant | Buy 3 get 1 free *SPECIAL*");
+      Console.WriteLine("6. Kouign Amann");
+      Console.WriteLine("7. Pain Au Chocolat | Buy 3 get 1 half off");
     }
     static int CalculateTotalBreadPrice(int userSelection, int orderQuantity)
     {
@@ -100,8 +124,10 @@ namespace PierresBakery
     }
     static void HandleUserInputError()
     {
+      Console.WriteLine(" ");
       Console.WriteLine("Your order could not be processed.");
       Console.WriteLine("Please enter a valid entry.");
+      Console.WriteLine(" ");
     }
     static void CatchError()
     {
