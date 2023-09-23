@@ -31,7 +31,6 @@ namespace PierresBakery
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");  
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");   
       Console.WriteLine("");
-      Console.WriteLine("");
       ShowMenu();
       try
       {
@@ -41,7 +40,8 @@ namespace PierresBakery
         int userPastrySelection = int.Parse(Console.ReadLine());
         if (userBreadSelection >= 1 && userBreadSelection <= 4 && userPastrySelection >= 5 && userPastrySelection <= 7)
         {
-          Console.WriteLine("Excellent choice. How many loaves would you like?");
+          Console.WriteLine("Excellent selections."); 
+          Console.WriteLine("How many loaves would you like?");
           int loafOrderQuantity = int.Parse(Console.ReadLine());
           Console.WriteLine("And for your pastry selection?");
           int pastryOrderQuantity = int.Parse(Console.ReadLine());
@@ -63,11 +63,13 @@ namespace PierresBakery
             string confirmOrder = Console.ReadLine();
             if (confirmOrder == orderTotal.ToString())
             {
-              Console.WriteLine("Payment successful. Thank you for your order!");
+              Console.WriteLine("Payment successful. Thank you for your order, goodbye!");
             }
             else
             {
-              Console.WriteLine("Payment amount does not match, your order can not be processed.");
+              Console.WriteLine("Payment amount does not match.");
+              CatchError();
+
             }
           }
           else if (userCheckout.ToLower() == "no")
@@ -78,7 +80,7 @@ namespace PierresBakery
         else
         {
           HandleUserInputError();
-          ShowMenu();
+          CatchError();
         }
       }
       catch
@@ -133,12 +135,13 @@ namespace PierresBakery
     {
       Console.WriteLine(" ");
       Console.WriteLine("Your order could not be processed.");
-      Console.WriteLine("Please enter a valid entry.");
       Console.WriteLine(" ");
+
     }
     static void CatchError()
     {
-      Console.WriteLine("Please try again.");
+      Console.WriteLine("Let's try to process your order again.");
+      ShowMenu();
     }
     static int CalculateBreadTotal(IBread bread, int orderQuantity)
     {
