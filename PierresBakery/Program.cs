@@ -54,9 +54,10 @@ namespace PierresBakery
           int orderTotal = loafOrderTotal + pastryOrderTotal;
           Console.WriteLine($"Your total price today is: ${orderTotal}");
           Console.WriteLine("Ready to checkout?");
-          Console.Write("Please enter: yes/no");
-          string userCheckout = Console.ReadLine();          
-          if (userCheckout.ToLower() == "yes")
+          Console.WriteLine("Please enter: yes / no");
+          string userCheckout2 = Console.ReadLine();     
+
+          if (userCheckout2.ToLower() == "yes")
           {
             Console.WriteLine($"Please enter the total amount of ${orderTotal} to confirm your order.");
             string confirmOrder = Console.ReadLine();
