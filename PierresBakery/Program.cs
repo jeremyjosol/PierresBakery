@@ -135,14 +135,19 @@ namespace PierresBakery
     }
     static void HandleUserInputError()
     {
+      Console.ForegroundColor = ConsoleColor.Red;
       Console.WriteLine(" ");
       Console.WriteLine("Your order could not be processed.");
       Console.WriteLine(" ");
+      Console.ResetColor();
 
     }
     static void CatchError()
     {
+      Console.ForegroundColor = ConsoleColor.Red;
       Console.WriteLine("Let's try to process your order again.");
+      Console.WriteLine(" ");
+      Console.ResetColor();
       ShowMenu();
     }
     static int CalculateBreadTotal(IBread bread, int orderQuantity)
