@@ -67,8 +67,9 @@ namespace PierresBakery
             }
             else
             {
-              Console.WriteLine("Payment amount does not match.");
               CatchError();
+              Console.WriteLine("Payment amount does not match.");
+              
 
             }
           }
