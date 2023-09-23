@@ -4,7 +4,6 @@ namespace PierresBakery.Models
   {
     int CalculateTotalBreadPrice(int orderQuantity);
   }
-  // Buy 2 get 1 free
   public class WhiteOrWheat : IBread
   {
     public int LoafPrice { get; }
@@ -30,7 +29,6 @@ namespace PierresBakery.Models
       return TotalBreadPrice;
     }
   }
-  // Buy 1 get 1 free
   public class Baguette : IBread
   {
     public int LoafPrice { get; }
@@ -48,7 +46,6 @@ namespace PierresBakery.Models
       return TotalBreadPrice;
     }
   }
-  // Buy 1 get 1 50% off
   public class Brioche : IBread
   {
     public int LoafPrice { get; }
