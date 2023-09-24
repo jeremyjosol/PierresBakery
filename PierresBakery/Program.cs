@@ -46,7 +46,7 @@ namespace PierresBakery
         if (userBreadSelection >= 1 && userBreadSelection <= 4 && userPastrySelection >= 5 && userPastrySelection <= 7)
         {
           Console.WriteLine("Excellent selections."); 
-          Console.WriteLine("How many loaves would you like?");
+          Console.WriteLine("How many loaves of bread would you like?");
           int loafOrderQuantity = int.Parse(Console.ReadLine());
           Console.WriteLine("And for your pastry selection?");
           int pastryOrderQuantity = int.Parse(Console.ReadLine());
