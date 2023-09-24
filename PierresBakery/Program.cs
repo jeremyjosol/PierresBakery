@@ -31,6 +31,10 @@ namespace PierresBakery
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");  
       Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");   
       Console.WriteLine("");
+      ProcessOrder();
+    }
+    static void ProcessOrder()
+    {
       ShowMenu();
       try
       {
@@ -38,6 +42,7 @@ namespace PierresBakery
         int userBreadSelection = int.Parse(Console.ReadLine());
         Console.WriteLine("For pastry options, please select a valid menu number from 5-7. ");
         int userPastrySelection = int.Parse(Console.ReadLine());
+        
         if (userBreadSelection >= 1 && userBreadSelection <= 4 && userPastrySelection >= 5 && userPastrySelection <= 7)
         {
           Console.WriteLine("Excellent selections."); 
@@ -56,7 +61,6 @@ namespace PierresBakery
           Console.WriteLine("Ready to checkout?");
           Console.WriteLine("Please enter: yes / no");
           string userCheckout = Console.ReadLine();     
-
           if (userCheckout.ToLower() == "yes")
           {
             Console.WriteLine($"To confirm, please enter the correct total of ${orderTotal} to process your order.");
@@ -73,7 +77,7 @@ namespace PierresBakery
           }
           else if (userCheckout.ToLower() == "no")
           {
-            ShowMenu();
+            ProcessOrder();
           }
         }
         else
@@ -139,7 +143,6 @@ namespace PierresBakery
       Console.WriteLine("Your order could not be processed.");
       Console.WriteLine(" ");
       Console.ResetColor();
-
     }
     static void CatchError()
     {
@@ -147,7 +150,7 @@ namespace PierresBakery
       Console.WriteLine("Let's try to process your order again.");
       Console.WriteLine(" ");
       Console.ResetColor();
-      ShowMenu();
+      ProcessOrder();
     }
     static int CalculateBreadTotal(IBread bread, int orderQuantity)
     {
