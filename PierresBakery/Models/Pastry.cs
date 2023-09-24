@@ -9,7 +9,6 @@ namespace PierresBakery.Models
     public int PastryPrice { get; }
     public int PastryCount { get; set; }
     public int TotalPastryPrice { get; set; }
-
     public Croissant()
     {
       PastryPrice = 2;
