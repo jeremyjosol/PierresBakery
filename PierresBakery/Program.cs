@@ -69,8 +69,6 @@ namespace PierresBakery
             {
               CatchError();
               Console.WriteLine("Payment amount does not match.");
-              
-
             }
           }
           else if (userCheckout.ToLower() == "no")
@@ -155,7 +153,6 @@ namespace PierresBakery
     {
       return bread.CalculateTotalBreadPrice(orderQuantity);
     }
-
     static int CalculatePastryTotal(IPastry pastry, int orderQuantity)
     {
       return pastry.CalculateTotalPastryPrice(orderQuantity);
