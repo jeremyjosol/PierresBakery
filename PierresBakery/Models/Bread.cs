@@ -9,7 +9,6 @@ namespace PierresBakery.Models
     public int LoafPrice { get; }
     public int LoafCount { get; set; }
     public int TotalBreadPrice { get; set; }
-
     public WhiteOrWheat()
     {
       LoafPrice = 5;
